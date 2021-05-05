@@ -18,4 +18,28 @@ public class Ranger {
         rangers.add(this);
         this.id = rangers.size();
     }
+
+    public static int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getBadge_number() {
+        return badge_number;
+    }
+
+    public int getPhone_number() {
+        return phone_number;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public static ArrayList<Ranger> getRangers() {
+        return rangers;
+    }
 }

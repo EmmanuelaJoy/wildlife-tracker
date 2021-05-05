@@ -22,6 +22,36 @@ public class RangerTest {
         assertTrue(ranger instanceof Ranger);
     }
 
+    @Test
+    public void rangerIdReturnsCorrectly_String() {
+        Ranger ranger = newRanger();
+        assertEquals(1, ranger.getId());
+    }
+
+    @Test
+    public void rangerNameReturnsCorrectly_String() {
+        Ranger ranger = newRanger();
+        assertEquals("Emma", ranger.getName());
+    }
+
+    @Test
+    public void rangerBadgeNumberReturnsCorrectly_String() {
+        Ranger ranger = newRanger();
+        assertEquals(23, ranger.getBadge_number());
+    }
+
+    @Test
+    public void rangerPhoneNumberReturnsCorrectly_String() {
+        Ranger ranger = newRanger();
+        assertEquals(555, ranger.getPhone_number());
+    }
+
+    @Test
+    public void rangerEmailReturnsCorrectly_String() {
+        Ranger ranger = newRanger();
+        assertEquals("joy@gmail.com", ranger.getEmail());
+    }
+
     private Ranger newRanger(){
         return new Ranger("Emma", 23, 555, "joy@gmail.com");
     }
