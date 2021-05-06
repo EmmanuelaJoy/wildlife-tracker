@@ -42,4 +42,8 @@ public class Ranger {
     public static ArrayList<Ranger> getRangers() {
         return rangers;
     }
+
+    public static void clearAllRangers() {
+        rangers.clear();
+    }
 }

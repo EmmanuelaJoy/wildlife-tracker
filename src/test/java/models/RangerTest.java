@@ -14,6 +14,7 @@ public class RangerTest {
 
     @After
     public void tearDown() throws Exception {
+        Ranger.clearAllRangers();
     }
 
     @Test
@@ -23,7 +24,7 @@ public class RangerTest {
     }
 
     @Test
-    public void rangerIdReturnsCorrectly_String() {
+    public void rangerIdReturnsCorrectly_int() {
         Ranger ranger = newRanger();
         assertEquals(1, ranger.getId());
     }
@@ -35,13 +36,13 @@ public class RangerTest {
     }
 
     @Test
-    public void rangerBadgeNumberReturnsCorrectly_String() {
+    public void rangerBadgeNumberReturnsCorrectly_int() {
         Ranger ranger = newRanger();
         assertEquals(23, ranger.getBadge_number());
     }
 
     @Test
-    public void rangerPhoneNumberReturnsCorrectly_String() {
+    public void rangerPhoneNumberReturnsCorrectly_int() {
         Ranger ranger = newRanger();
         assertEquals(555, ranger.getPhone_number());
     }
@@ -50,6 +51,14 @@ public class RangerTest {
     public void rangerEmailReturnsCorrectly_String() {
         Ranger ranger = newRanger();
         assertEquals("joy@gmail.com", ranger.getEmail());
+    }
+
+    @Test
+    public void rangerObjectsAreDeletedCorrectly_True() {
+        Ranger ranger = newRanger();
+        Ranger ranger1 = newRanger();
+        Ranger.clearAllRangers();
+        assertEquals(0, Ranger.getRangers().size());
     }
 
     private Ranger newRanger(){
