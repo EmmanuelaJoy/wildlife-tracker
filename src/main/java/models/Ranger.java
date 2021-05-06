@@ -1,26 +1,33 @@
 package models;
-
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ranger {
-    private static int id;
+    private int id;
     private String name;
     private int badge_number;
     private int phone_number;
     private String email;
-    private static ArrayList<Ranger> rangers = new ArrayList<>();
-
     public Ranger(String name, int badge_number, int phone_number, String email){
         this.name = name;
         this.badge_number = badge_number;
         this.phone_number = phone_number;
         this.email = email;
-        rangers.add(this);
-        this.id = rangers.size();
     }
 
-    public static int getId() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ranger ranger = (Ranger) o;
+        return badge_number == ranger.badge_number && phone_number == ranger.phone_number && name.equals(ranger.name) && email.equals(ranger.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, badge_number, phone_number, email);
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -40,24 +47,23 @@ public class Ranger {
         return email;
     }
 
-    public static ArrayList<Ranger> getRangers() {
-        return rangers;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static void clearAllRangers() {
-        rangers.clear();
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ranger ranger = (Ranger) o;
-        return badge_number == ranger.badge_number && phone_number == ranger.phone_number && name.equals(ranger.name) && email.equals(ranger.email);
+    public void setBadge_number(int badge_number) {
+        this.badge_number = badge_number;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, badge_number, phone_number, email);
+    public void setPhone_number(int phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

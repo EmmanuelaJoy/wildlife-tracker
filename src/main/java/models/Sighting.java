@@ -1,28 +1,38 @@
 package models;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Sighting {
-    private static int id;
+    private int id;
     private int rangerID;
     private int animalID;
     private int locationID;
     private Date date = new Date();
     private Timestamp timestamp;
-    private static ArrayList<Sighting> sightings = new ArrayList<>();
 
     public Sighting(int rangerID, int animalID, int locationID){
         this.rangerID = rangerID;
         this.animalID = animalID;
         this.locationID = locationID;
         this.timestamp = new Timestamp(date.getTime());
-        sightings.add(this);
-        this.id = sightings.size();
     }
 
-    public static int getId() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sighting sighting = (Sighting) o;
+        return id == sighting.id && rangerID == sighting.rangerID && animalID == sighting.animalID && locationID == sighting.locationID && date.equals(sighting.date) && timestamp.equals(sighting.timestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, rangerID, animalID, locationID, date, timestamp);
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -46,11 +56,27 @@ public class Sighting {
         return timestamp;
     }
 
-    public static ArrayList<Sighting> getSightings() {
-        return sightings;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static void clearAllSightings() {
-        sightings.clear();
+    public void setRangerID(int rangerID) {
+        this.rangerID = rangerID;
+    }
+
+    public void setAnimalID(int animalID) {
+        this.animalID = animalID;
+    }
+
+    public void setLocationID(int locationID) {
+        this.locationID = locationID;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

@@ -14,19 +14,12 @@ public class Endangered_AnimalTest {
 
     @After
     public void tearDown() throws Exception {
-        Endangered_Animal.clearAllEndangeredAnimals();
     }
 
     @Test
     public void endangeredAnimalObjectsInstantiateCorrectly_true() {
         Endangered_Animal endangered_animal = newEndangeredAnimal();
         assertTrue(endangered_animal instanceof Endangered_Animal);
-    }
-
-    @Test
-    public void endangeredAnimalIdReturnsCorrectly_int() {
-        Endangered_Animal endangered_animal = newEndangeredAnimal();
-        assertEquals(1, endangered_animal.getId());
     }
 
     @Test
@@ -52,22 +45,6 @@ public class Endangered_AnimalTest {
     public void endangeredAnimalHealthStatusReturnsCorrectly_int() {
         Endangered_Animal endangered_animal = newEndangeredAnimal();
         assertEquals("okay", endangered_animal.getHealth_status());
-    }
-
-    @Test
-    public void allEndangeredAnimalsContainsAllEndangeredAnimalObjects_true() {
-        Endangered_Animal endangered_animal = newEndangeredAnimal();
-        Endangered_Animal endangered_animal1 = newEndangeredAnimal();
-        assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal));
-        assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal1));
-    }
-
-    @Test
-    public void endangeredAnimalObjectsAreDeletedCorrectly_True() {
-        Endangered_Animal endangered_animal = newEndangeredAnimal();
-        Endangered_Animal endangered_animal1 = newEndangeredAnimal();
-        Endangered_Animal.clearAllEndangeredAnimals();
-        assertEquals(0, Endangered_Animal.getEndangered_animals().size());
     }
 
     private Endangered_Animal newEndangeredAnimal(){

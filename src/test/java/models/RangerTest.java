@@ -14,19 +14,12 @@ public class RangerTest {
 
     @After
     public void tearDown() throws Exception {
-        Ranger.clearAllRangers();
     }
 
     @Test
     public void instantiatesRangerObjectsCorrectly_true() {
         Ranger ranger = newRanger();
         assertTrue(ranger instanceof Ranger);
-    }
-
-    @Test
-    public void rangerIdReturnsCorrectly_int() {
-        Ranger ranger = newRanger();
-        assertEquals(1, ranger.getId());
     }
 
     @Test
@@ -51,14 +44,6 @@ public class RangerTest {
     public void rangerEmailReturnsCorrectly_String() {
         Ranger ranger = newRanger();
         assertEquals("joy@gmail.com", ranger.getEmail());
-    }
-
-    @Test
-    public void rangerObjectsAreDeletedCorrectly_True() {
-        Ranger ranger = newRanger();
-        Ranger ranger1 = newRanger();
-        Ranger.clearAllRangers();
-        assertEquals(0, Ranger.getRangers().size());
     }
 
     private Ranger newRanger(){
