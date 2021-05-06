@@ -18,7 +18,39 @@ public class Sighting {
         this.animalID = animalID;
         this.locationID = locationID;
         this.timestamp = new Timestamp(date.getTime());
+        sightings.add(this);
         this.id = sightings.size();
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public int getRangerID() {
+        return rangerID;
+    }
+
+    public int getAnimalID() {
+        return animalID;
+    }
+
+    public int getLocationID() {
+        return locationID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public static ArrayList<Sighting> getSightings() {
+        return sightings;
+    }
+
+    public static void clearAllSightings() {
+        sightings.clear();
+    }
 }
