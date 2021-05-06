@@ -22,6 +22,45 @@ public class Endangered_AnimalTest {
         assertTrue(endangered_animal instanceof Endangered_Animal);
     }
 
+    @Test
+    public void endangeredAnimalIdReturnsCorrectly_int() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        assertEquals(1, endangered_animal.getId());
+    }
+
+    @Test
+    public void endangeredAnimalTypeReturnsCorrectly_String() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        assertEquals("endangered", endangered_animal.getType());
+    }
+
+
+    @Test
+    public void endangeredAnimalNameReturnsCorrectly_String() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        assertEquals("rhino", endangered_animal.getName());
+    }
+
+    @Test
+    public void endangeredAnimalAgeReturnsCorrectly_String() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        assertEquals("old", endangered_animal.getAge());
+    }
+
+    @Test
+    public void endangeredAnimalHealthStatusReturnsCorrectly_int() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        assertEquals("okay", endangered_animal.getHealth_status());
+    }
+
+    @Test
+    public void allEndangeredAnimalsContainsAllEndangeredAnimalObjects_true() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        Endangered_Animal endangered_animal1 = newEndangeredAnimal();
+        assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal));
+        assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal1));
+    }
+
     private Endangered_Animal newEndangeredAnimal(){
         return new Endangered_Animal("endangered", "rhino", "old", "okay");
     }

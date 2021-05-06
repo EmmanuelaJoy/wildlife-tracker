@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Endangered_Animal {
-    private static int id;
+    private int id;
     public static String type="endangered";
     private String name;
     private String age;
@@ -17,5 +17,29 @@ public class Endangered_Animal {
         this.health_status = health_status;
         endangered_animals.add(this);
         this.id = endangered_animals.size();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getHealth_status() {
+        return health_status;
+    }
+
+    public static ArrayList<Endangered_Animal> getEndangered_animals() {
+        return endangered_animals;
     }
 }
