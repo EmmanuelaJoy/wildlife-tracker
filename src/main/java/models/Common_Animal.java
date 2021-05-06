@@ -17,4 +17,27 @@ public class Common_Animal {
         this.id = common_animals.size();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public static String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public static ArrayList<Common_Animal> getCommon_animals() {
+        return common_animals;
+    }
+
+    public static void clearAllCommonAnimals() {
+        common_animals.clear();
+    }
 }
