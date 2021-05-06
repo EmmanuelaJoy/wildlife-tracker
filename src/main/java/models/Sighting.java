@@ -20,4 +20,5 @@ public class Sighting {
         this.timestamp = new Timestamp(date.getTime());
         this.id = sightings.size();
     }
+
 }
