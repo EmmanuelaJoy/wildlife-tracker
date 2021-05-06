@@ -42,4 +42,8 @@ public class Endangered_Animal {
     public static ArrayList<Endangered_Animal> getEndangered_animals() {
         return endangered_animals;
     }
+
+    public static void clearAllEndangeredAnimals() {
+        endangered_animals.clear();
+    }
 }

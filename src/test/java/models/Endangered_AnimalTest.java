@@ -14,6 +14,7 @@ public class Endangered_AnimalTest {
 
     @After
     public void tearDown() throws Exception {
+        Endangered_Animal.clearAllEndangeredAnimals();
     }
 
     @Test
@@ -59,6 +60,14 @@ public class Endangered_AnimalTest {
         Endangered_Animal endangered_animal1 = newEndangeredAnimal();
         assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal));
         assertTrue(Endangered_Animal.getEndangered_animals().contains(endangered_animal1));
+    }
+
+    @Test
+    public void endangeredAnimalObjectsAreDeletedCorrectly_True() {
+        Endangered_Animal endangered_animal = newEndangeredAnimal();
+        Endangered_Animal endangered_animal1 = newEndangeredAnimal();
+        Endangered_Animal.clearAllEndangeredAnimals();
+        assertEquals(0, Endangered_Animal.getEndangered_animals().size());
     }
 
     private Endangered_Animal newEndangeredAnimal(){
