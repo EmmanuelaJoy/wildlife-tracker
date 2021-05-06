@@ -64,4 +64,5 @@ public class RangerTest {
     private Ranger newRanger(){
         return new Ranger("Emma", 23, 555, "joy@gmail.com");
     }
+
 }

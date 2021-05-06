@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Ranger {
     private static int id;
@@ -45,5 +46,18 @@ public class Ranger {
 
     public static void clearAllRangers() {
         rangers.clear();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ranger ranger = (Ranger) o;
+        return badge_number == ranger.badge_number && phone_number == ranger.phone_number && name.equals(ranger.name) && email.equals(ranger.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, badge_number, phone_number, email);
     }
 }
