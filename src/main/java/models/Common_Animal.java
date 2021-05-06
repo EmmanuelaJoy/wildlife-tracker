@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Common_Animal {
-    private int id;
+    private static int id;
     public static String type="common";
     private String name;
     private String age;
@@ -17,7 +17,7 @@ public class Common_Animal {
         this.id = common_animals.size();
     }
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
