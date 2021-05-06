@@ -16,4 +16,5 @@ public class Common_Animal {
         common_animals.add(this);
         this.id = common_animals.size();
     }
+
 }
