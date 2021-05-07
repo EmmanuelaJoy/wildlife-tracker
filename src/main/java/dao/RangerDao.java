@@ -20,5 +20,5 @@ public interface RangerDao {
 
     //Delete
     void deleteById(int id);
-    void clearAllTasks();
+    void clearAllRangers();
 }
