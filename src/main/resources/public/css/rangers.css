@@ -1,0 +1,63 @@
+body {
+    background-color: #343a40;
+    font-family: 'Lato';
+    color:#fff;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 600;
+}
+
+.ranger #rangerList{
+    list-style:none;
+    margin:1em;
+}
+
+.ranger{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ranger #rangerList #rangerListLink{
+    text-decoration:none;
+    color:#000;
+    background:burlywood;
+    display:block;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transition: transform .15s linear;
+}
+
+#rangerList #rangerListLink:hover{
+    box-shadow:10px 10px 7px rgba(0,0,0,.5);
+    transform: scale(1);
+    position:relative;
+    z-index:2;
+}
+
+.ranger #rangerList:nth-child(even) a{
+    position:relative;
+    top:5px;
+    background:#cfc;
+}
+.ranger #rangerList:nth-child(3n) a{
+    position:relative;
+    top:-5px;
+    background:#ccf;
+}
+
+#noRanger{
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#noRanger #rangerList #rangerListLink{
+    text-align: center;
+    height:20em;
+    width:20em;
+    padding:6em;
+}
