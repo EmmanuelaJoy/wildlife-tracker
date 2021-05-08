@@ -1,5 +1,9 @@
 import static spark.Spark.*;
+
+import dao.Sql2oAnimalDao;
 import dao.Sql2oRangerDao;
+import models.Common_Animal;
+import models.Endangered_Animal;
 import models.Ranger;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
@@ -18,6 +22,7 @@ public class App {
         String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
         Sql2o sql2o = new Sql2o(connectionString, "emmanuela", "adminPass");
         Sql2oRangerDao rangerDao = new Sql2oRangerDao(sql2o);
+        Sql2oAnimalDao animalDao = new Sql2oAnimalDao(sql2o);
 
         get("/", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -96,6 +101,29 @@ public class App {
         get("/animals/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "animalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/animals", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String type = request.queryParams("type");
+            String commonAnimalName = request.queryParams("commonAnimalName");
+            String commonAnimalAge = request.queryParams("commonAnimalAge");
+            Common_Animal common_animal = new Common_Animal(type, commonAnimalName, commonAnimalAge);
+            animalDao.add(common_animal);
+            model.put("commonAnimal", common_animal);
+            String endangeredAnimalName = request.queryParams("endangeredAnimalName");
+            String endangeredAnimalAge = request.queryParams("endangeredAnimalAge");
+            String health_status = request.queryParams("endangeredAnimalHealth");
+            Endangered_Animal endangered_animal = new Endangered_Animal(type, endangeredAnimalName, endangeredAnimalAge, health_status);
+            model.put("animal", endangered_animal);
+            return new ModelAndView(model, "animalForm.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/animals", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("commonAnimals", animalDao.getAll());
+//            model.put("endangeredAnimals", Endangered_Animal.getEndangered_animals());
+            return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
     }
