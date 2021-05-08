@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Common_Animal {
     private int id;
-    public static String type="common";
+    public String type;
     private String name;
     private String age;
 
@@ -31,7 +31,7 @@ public class Common_Animal {
         return id;
     }
 
-    public static String getType() {
+    public String getType() {
         return type;
     }
 
@@ -47,8 +47,8 @@ public class Common_Animal {
         this.id = id;
     }
 
-    public static void setType(String type) {
-        Common_Animal.type = type;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setName(String name) {
