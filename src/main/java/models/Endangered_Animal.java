@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Endangered_Animal {
     private int id;
-    public static String type="endangered";
+    public String type;
     private String name;
     private String age;
-    private String health_status;
+    private String health;
 
-    public Endangered_Animal(String type, String name, String age, String health_status){
+    public Endangered_Animal(String type, String name, String age, String health){
         this.type= type;
         this.name = name;
         this.age = age;
-        this.health_status = health_status;
+        this.health = health;
     }
 
     @Override
@@ -21,19 +21,19 @@ public class Endangered_Animal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Endangered_Animal that = (Endangered_Animal) o;
-        return id == that.id && name.equals(that.name) && age.equals(that.age) && health_status.equals(that.health_status);
+        return id == that.id && name.equals(that.name) && age.equals(that.age) && health.equals(that.health);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, health_status);
+        return Objects.hash(id, name, age, health);
     }
 
     public int getId() {
         return id;
     }
 
-    public static String getType() {
+    public String getType() {
         return type;
     }
 
@@ -46,15 +46,15 @@ public class Endangered_Animal {
     }
 
     public String getHealth_status() {
-        return health_status;
+        return health;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public static void setType(String type) {
-        Endangered_Animal.type = type;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setName(String name) {
@@ -65,7 +65,7 @@ public class Endangered_Animal {
         this.age = age;
     }
 
-    public void setHealth_status(String health_status) {
-        this.health_status = health_status;
+    public void setHealth(String health) {
+        this.health = health;
     }
 }

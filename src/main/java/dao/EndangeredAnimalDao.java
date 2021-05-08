@@ -15,9 +15,9 @@ public interface EndangeredAnimalDao {
     Endangered_Animal findById(int id);
 
     //Update
-    void update(int id, String type, String name, String age);
+    void update(int id, String type, String name, String age, String health);
 
     //Delete
     void deleteById(int id);
-    void clearAllAnimals();
+    void clearAllEndangeredAnimals();
 }
