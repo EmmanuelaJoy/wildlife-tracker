@@ -93,5 +93,10 @@ public class App {
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/animals/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "animalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }
