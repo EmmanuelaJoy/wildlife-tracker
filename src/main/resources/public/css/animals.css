@@ -1,0 +1,25 @@
+body {
+    background-color: #343a40;
+    font-family: 'Lato';
+    color:#fff;
+}
+
+.animal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#noAnimal{
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#noAnimal #animalList #animalListLink{
+    text-align: center;
+    height:20em;
+    width:20em;
+    padding:6em;
+}
