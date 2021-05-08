@@ -23,7 +23,7 @@ public class Sql2oRangerDao implements RangerDao {
 
     @Override
     public void add(Ranger ranger) {
-        String sql = "INSERT INTO rangers (name) VALUES (:name)";
+        String sql = "INSERT INTO rangers (name, phone_number, email, badge_number) VALUES (:name, :phone_number, :email, :badge_number)";
         try(Connection connection = sql2o.open()){
             int id = (int) connection.createQuery(sql,true).bind(ranger).executeUpdate().getKey();
             ranger.setId(id);
@@ -40,10 +40,10 @@ public class Sql2oRangerDao implements RangerDao {
     }
 
     @Override
-    public void update(int id, String name, int badge_number, int phone_number, String email) {
-        String sql = "UPDATE rangers SET name = :name WHERE id=:id";
+    public void update(int id, String newName, int new_badge_number, int new_phone_number, String newEmail) {
+        String sql = "UPDATE rangers SET name = :name, phone_number = :phone_number, email = :email, badge_number = :badge_number WHERE id=:id";
         try(Connection connection = sql2o.open()){
-            connection.createQuery(sql).addParameter("name", name).addParameter("id", id).executeUpdate();
+            connection.createQuery(sql).addParameter("name", newName).addParameter("phone_number", new_phone_number).addParameter("email", newEmail).addParameter("badge_number", new_badge_number).addParameter("id", id).executeUpdate();
 
         } catch (Sql2oException ex){
             System.out.println(ex);
