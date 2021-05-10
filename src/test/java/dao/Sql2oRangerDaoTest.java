@@ -40,14 +40,6 @@ public class Sql2oRangerDaoTest {
         assertNotEquals(rangerId, ranger.getId());
     }
 
-//    @Test
-//    public void existingRangersCanBeFoundById() throws Exception{
-//        Ranger ranger = newRanger();
-//        rangerDao.add(ranger);
-//        Ranger foundRanger = rangerDao.findById(ranger.getId());
-//        assertEquals(ranger, foundRanger);
-//    }
-
     @Test
     public void getsAllRangers() throws Exception{
         Ranger ranger = newRanger();
