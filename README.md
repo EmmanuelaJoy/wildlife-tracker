@@ -1,5 +1,11 @@
 # WILDLIFE TRACKER APP
 
+## Author's Information
+
+<p>This project was developed by Emmanuela Joy.</p>
+
+Click on [Emmanuela Joy ](https://github.com/EmmanuelaJoy) to find the link to her Github Site.
+
 ## Project Description
 
 <p>Wildlife Tracker is an application that enables rangers to record sightings in an area.</p>
@@ -18,12 +24,6 @@
 4. As a user i want to be able to modify any details that i may have recorded.
 5. As a user i want to be able to delete any details that i may have recorded.
 6. As a user i want to be able to see all the details of sightings recorded by me and/or other users.
-
-## Author's Information
-
-<p>This project was developed by Emmanuela Joy.</p>
-
-Click on [Emmanuela Joy ](https://github.com/EmmanuelaJoy) to find the link to her Github Site.
 
 ## Demo
 
