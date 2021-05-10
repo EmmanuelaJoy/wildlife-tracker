@@ -4,17 +4,50 @@ body {
     color:#fff;
 }
 
+h2{
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 600;
+    margin: 2em;
+}
+
 .animal{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+.animal h2{
+    margin: 0;
+}
+
+.animal #animaList{
+    list-style:none;
+    margin:1em;
+}
+
+.animal #animalList #animalListLink{
+    text-decoration:none;
+    color:#000;
+    background:burlywood;
+    display:block;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transition: transform .15s linear;
+}
+
+#animalList #animalListLink:hover{
+    box-shadow:10px 10px 7px rgba(0,0,0,.5);
+    transform: scale(1);
+    position:relative;
+    z-index:2;
+}
+
 #noAnimal{
     justify-content: center;
     position: absolute;
     top: 40%;
-    left: 40%;
+    left: 41%;
+    list-style: none;
 }
 
 #noAnimal #animalList #animalListLink{
@@ -23,3 +56,4 @@ body {
     width:20em;
     padding:6em;
 }
+
