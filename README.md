@@ -27,7 +27,7 @@ Click on [Emmanuela Joy ](https://github.com/EmmanuelaJoy) to find the link to h
 
 ## Demo
 
-Here is a working live demo : https://heroes-assemble.herokuapp.com/
+Here is a working live demo : https://douglas-wildlife-tracker.herokuapp.com/
 
 ## Project Set Up Instructions
 
