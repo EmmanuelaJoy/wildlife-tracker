@@ -1,7 +1,6 @@
 package dao;
 
 import models.Location;
-import models.Ranger;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;

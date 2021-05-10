@@ -69,7 +69,7 @@ public class Sql2oRangerDaoTest {
     }
 
     @Test
-    public void deleteByIdDeletesCorrectRager() throws Exception {
+    public void deleteByIdDeletesCorrectRanger() throws Exception {
         Ranger ranger = newRanger();
         rangerDao.add(ranger);
         rangerDao.deleteById(ranger.getId());
