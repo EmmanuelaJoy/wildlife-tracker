@@ -1,0 +1,33 @@
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/sightings.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    {{#if sightings}}
+
+        <h2>LIST OF SIGHTINGS</h2>
+
+        <div class="container">
+        <table>
+            <tr>
+                <th>Ranger Name</th>
+                <th>Animal Name</th>
+                <th>Location Name</th>
+            </tr>
+            {{#each sightings}}
+            <tr>
+                <td>{{ranger_id}}</td>
+                <td>{{animal_id}}</td>
+                <td>{{location_id}}</td>
+            </tr>
+            {{/each}}
+        </table>
+        </div>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,0 +1,93 @@
+{{#partial "script"}}
+    <script src="/js/script.js"></script>
+{{/partial}}
+
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/animalForm.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    <div class="container">
+
+        <form action="/animals" method="post" id="animal">
+
+            <div class="card">
+
+                <div class="card-body mx-4">
+
+                    <div class="text-center">
+                        <h3 class="dark-grey-text mb-5"><strong>What Kind Of Animal Did you Spot?</strong></h3>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="common" value="common" onclick="animal(0)">
+                        <label class="form-check-label" for="type">Common Species</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="endangered" value="endangered"  onclick="animal(1)">
+                        <label class="form-check -label" for="type">Endangered Species</label>
+                    </div>
+
+                    <div id="species">
+                        <div id="normalSpecies">
+                            <div class="form-group">
+                                <label for="commonAnimalName">Type of animal</label>
+                                <input type="text" class="form-control" name="commonAnimalName" id="commonAnimalName" placeholder="What is the animal type?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="commonAnimalAge">Estimated Age</label>
+                                <select class="custom-select" name="commonAnimalAge" id="commonAnimalAge">
+                                    <option selected>Choose...</option>
+                                    <option name="commonAnimalAge" value="Newborn">Newborn</option>
+                                    <option name="commonAnimalAge" value="Young">Young</option>
+                                    <option name="commonAnimalAge" value="Adult">Adult</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div id="endangeredSpecies">
+                            <div class="form-group">
+                                <label for="endangeredAnimalName">Type of animal</label>
+                                <input type="text" class="form-control" name="endangeredAnimalName" id="endangeredAnimalName" placeholder="What is the animal type?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="endangeredAnimalAge">Estimated Age</label>
+                                <select class="custom-select" id="endangeredAnimalAge" name="endangeredAnimalAge">
+                                    <option selected>Choose...</option>
+                                    <option name="endangeredAnimalAge" value="Newborn">Newborn</option>
+                                    <option name="endangeredAnimalAge" value="Young">Young</option>
+                                    <option name="endangeredAnimalAge" value="Adult">Adult</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="endangeredAnimalHealth">Health of Animal</label>
+                                <select class="custom-select" id="endangeredAnimalHealth" name="endangeredAnimalHealth">
+                                    <option selected>Choose...</option>
+                                    <option name="endangeredAnimalHealth" value="Healthy">Healthy</option>
+                                    <option name="endangeredAnimalHealth" value="Ill">Ill</option>
+                                    <option name="endangeredAnimalHealth" value="Okay">Okay</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-light btn-block" id="submitAnimal">Submit</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

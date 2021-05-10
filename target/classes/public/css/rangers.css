@@ -1,0 +1,78 @@
+body {
+    background-color: #343a40;
+    font-family: 'Lato';
+    color:#fff;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 600;
+    margin: 2em;
+}
+
+.row{
+    justify-content: center;
+}
+
+.ranger{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ranger #rangerList{
+    list-style:none;
+    margin:1em;
+}
+
+.ranger #rangerList #rangerListLink{
+    text-decoration:none;
+    color:#000;
+    background:burlywood;
+    display:block;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transition: transform .15s linear;
+}
+
+#rangerList #rangerListLink:hover{
+    box-shadow:10px 10px 7px rgba(0,0,0,.5);
+    transform: scale(1);
+    position:relative;
+    z-index:2;
+}
+
+#rangerButtons{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 15px;
+    font-size: 18px;
+}
+
+#noRanger{
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#noRanger h2{
+    margin: 0;
+}
+
+#noRanger #rangerList #rangerListLink{
+    text-align: center;
+    height:20em;
+    width:20em;
+    padding:6em;
+}
+
+/*#delete{*/
+/*    text-align: center;*/
+/*}*/
+
+/*.btn-danger{*/
+/*    padding: 1em;*/
+/*}*/

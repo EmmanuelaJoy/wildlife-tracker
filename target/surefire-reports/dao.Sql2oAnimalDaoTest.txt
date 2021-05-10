@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: dao.Sql2oAnimalDaoTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.488 sec - in dao.Sql2oAnimalDaoTest

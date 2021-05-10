@@ -1,0 +1,11 @@
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/models/RangerTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/dao/Sql2oAnimalDaoTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/dao/Sql2oEndangeredAnimalDaoTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/dao/Sql2oSightingsDaoTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/models/LocationTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/dao/Sql2oRangerDaoTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/models/Common_AnimalTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/models/SightingTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/dao/Sql2oLocationDaoTest.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/DatabaseRule.java
+/home/emmanuela/Documents/community/wildlife-tracker/src/test/java/models/Endangered_AnimalTest.java

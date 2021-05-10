@@ -1,0 +1,76 @@
+{{#partial "script"}}
+    <script src="/js/script.js"></script>
+{{/partial}}
+
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/sightingForm.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    <div class="container">
+
+        <form action="/sightings" method="post" id="sighting">
+
+            <div class="card">
+
+                <div class="card-body mx-4">
+
+                    <div class="text-center">
+                        <h2 class="dark-grey-text mb-5"><strong>Create A Sighting</strong></h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rangers">Ranger</label>
+                        <select class="custom-select" name="ranger" id="ranger">
+                            <option selected>Choose ranger</option>
+                            {{#if rangers}}
+                                {{#each rangers}}
+                                        <option name="ranger" value={{id}}>{{name}}</option>
+                                {{/each}}
+                            {{/if}}
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="animals">Animal</label>
+                        <select class="custom-select" id="animal" name="animal">
+                            <option selected>Choose Animal</option>
+                                {{#if commonAnimals}}
+                                    {{#each commonAnimals}}
+                                        <option name="animal" value={{id}}>{{name}}</option>
+                                    {{/each}}
+                                {{/if}}
+                                {{#if endangeredAnimals}}
+                                    {{#each endangeredAnimals}}
+                                        <option name="animal" value={{id}}>{{name}}</option>
+                                    {{/each}}
+                                {{/if}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select class="custom-select" id="location" name="location">
+                            <option selected>Choose Location</option>
+                            {{#if locations}}
+                                {{#each locations}}
+                                    <option name="location" value={{id}}>{{name}}</option>
+                                {{/each}}
+                            {{/if}}
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-light btn-block" id="submitSighting">Create Sighting</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

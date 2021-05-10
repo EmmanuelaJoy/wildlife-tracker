@@ -62,10 +62,15 @@ h2{
     justify-content: center;
     position: fixed;
     top: 40%;
-    left: 40%;
+    left: 37%;
+}
+
+#noLocation h2{
+   margin: 0;
 }
 
 #noLocation #locationList #locationListLink{
+    background-color: burlywood;
     text-align: center;
     height:20em;
     width:20em;

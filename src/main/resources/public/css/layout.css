@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Halant:wght@300;400;500;600;700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Halant:wght@300;400;500;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Sonsie+One&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -17,11 +16,13 @@ body {
     background-size: cover;
     height: 100vh;
     font-family: 'Halant', serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .container{
     padding: 0;
-    margin-top: 12em;
+    margin-top: 10em;
 }
 
 .navbar {
@@ -58,14 +59,4 @@ body {
 
 .dropdown:hover .dropdown-menu {
     display: block;
-}
-
-@media (max-width: 1100px) {
-    html {
-        font-size: 50%;
-    }
-
-    body {
-        width: fit-content;
-    }
 }

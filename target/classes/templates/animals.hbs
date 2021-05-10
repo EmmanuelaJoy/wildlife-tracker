@@ -1,0 +1,86 @@
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/animals.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    <h2>LIST OF ANIMALS</h2>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            {{#if commonAnimals}}
+                {{#each commonAnimals}}
+                        <div class="column">
+                            <ul class="animal">
+                                <li id="animalList">
+                                    <a href="#" id="animalListLink">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{name}}</h5>
+                                                <p class="card-text">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Type: {{type}}</li>
+                                                    <li class="list-group-item">Age: {{age}}</li>
+                                                </ul></p>
+                                                <div class="animalButtons">
+                                                    <a href="/animals/{{id}}/update" class="card-link">Edit Animal</a>
+                                                    <a href="/animals/{{id}}/delete" class="card-link">Delete Animal</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                {{/each}}
+            {{/if}}
+        </div>
+
+        <div class="row">
+            {{#if endangeredAnimals}}
+                {{#each endangeredAnimals}}
+                        <div class="column">
+                            <ul class="animal">
+                                <li id="animalList">
+                                    <a href="#" id="animalListLink">
+                                        <div class="card" style="width: 18rem;" id="endangeredAnimal">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{name}}</h5>
+                                                <p class="card-text">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Type: {{type}}</li>
+                                                    <li class="list-group-item">Age: {{age}}</li>
+                                                    <li class="list-group-item">Health Status: {{health}}</li>
+                                                </ul></p>
+                                                <div class="animalButtons">
+                                                    <a href="#" class="card-link">Edit Animal</a>
+                                                    <a href="/endangered/animal/{{id}}/delete" class="card-link">Delete Animal</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+
+    {{else}}
+        <ul class="animal" id="noAnimal">
+            <li id="animalList">
+                <a href="#" id="animalListLink">
+                    <h2>Sorry</h2>
+                    <p id="noAnimals">No Animals Available!</p>
+                </a>
+            </li>
+        </ul>
+
+
+{{/partial}}
+
+{{> layout.hbs}}

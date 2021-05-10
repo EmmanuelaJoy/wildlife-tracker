@@ -1,0 +1,39 @@
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/locationForm.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    <div class="container">
+
+        <form action="/locations" method="post">
+
+            <div class="card">
+
+                <div class="card-body mx-4">
+
+                    <div class="text-center">
+                        <h3 class="dark-grey-text mb-5"><strong>Location Where Animal was Spotted</strong></h3>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="location">Location name</label>
+                        <input type="text" name="location" id="location" class="form-control" placeholder="Eg Zone A" required>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" class="btn btn-light btn-block locationSubmit">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

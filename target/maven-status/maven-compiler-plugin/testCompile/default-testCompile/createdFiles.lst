@@ -1,0 +1,10 @@
+dao/Sql2oSightingsDaoTest.class
+models/Common_AnimalTest.class
+models/LocationTest.class
+dao/Sql2oAnimalDaoTest.class
+models/RangerTest.class
+dao/Sql2oRangerDaoTest.class
+dao/Sql2oEndangeredAnimalDaoTest.class
+dao/Sql2oLocationDaoTest.class
+models/SightingTest.class
+models/Endangered_AnimalTest.class

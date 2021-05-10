@@ -1,0 +1,49 @@
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/locations.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    {{#if location}}
+
+        <h2>LIST OF LOCATIONS</h2>
+        <div class="container-fluid">
+            <div class="row">
+                {{#each location}}
+                        <div class="column" id="items">
+                            <ul class="location">
+                                <li id="locationList">
+                                    <div class="card" style="width: 18rem;" id="locationListLink">
+                                        <div class="card-body">
+                                            <p class="card-text">{{name}}</p>
+                                            <a href="/locations/{{id}}/update" class="card-link">Edit Location</a>
+                                            <a href="/locations/{{id}}/delete" class="card-link">Delete Location</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                {{/each}}
+            </div>
+        </div>
+
+    {{else}}
+        <ul class="location" id="noLocation">
+            <li id="locationList">
+                <a href="#" id="locationListLink">
+                    <h2>Sorry</h2>
+                    <p>No Locations Available</p>
+                </a>
+            </li>
+        </ul>
+    {{/if}}
+
+<!--    {{#if location}}-->
+<!--        <a href="/locations/delete"><button class="btn-info">Delete All Locations</button></a>-->
+<!--    {{/if}}-->
+
+{{/partial}}
+
+{{> layout.hbs}}

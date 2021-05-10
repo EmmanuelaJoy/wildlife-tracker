@@ -1,0 +1,60 @@
+{{#partial "styles"}}
+
+    <link rel='stylesheet' href='/css/rangers.css'>
+
+{{/partial}}
+
+{{#partial "content"}}
+
+    <h2>LIST OF RANGERS</h2>
+        <div class="container-fluid">
+        {{#if ranger}}
+            <div class="row">
+                {{#each ranger}}
+                        <div class="column">
+                            <ul class="ranger">
+                                <li id="rangerList">
+                                    <a href="#" id="rangerListLink">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{name}}</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">Badge Number: {{badge_number}}</h6>
+                                                <p class="card-text">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Phone Number: {{phone_number}}</li>
+                                                    <li class="list-group-item">Email Address: {{email}}</li>
+                                                </ul></p>
+                                                <div id="rangerButtons">
+                                                    <a href="#" class="card-link">Edit Ranger</a>
+                                                    <a href="/rangers/{{id}}/delete" class="card-link">Delete Ranger</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                {{/each}}
+            </div>
+        </div>
+
+    {{else}}
+        <ul class="ranger" id="noRanger">
+            <li id="rangerList">
+                <a href="#" id="rangerListLink">
+                    <h2>Sorry</h2>
+                    <p>No Rangers Available</p>
+                </a>
+            </li>
+        </ul>
+    {{/if}}
+
+<!--    {{#if ranger}}-->
+<!--        <div id="delete">-->
+<!--        <a href="/rangers/delete"><button class="btn-danger">Delete All Rangers</button></a>-->
+<!--        </div>-->
+<!--    {{/if}}-->
+
+{{/partial}}
+
+{{> layout.hbs}}
