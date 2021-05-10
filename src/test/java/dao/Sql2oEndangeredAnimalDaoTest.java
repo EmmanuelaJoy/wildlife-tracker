@@ -62,19 +62,19 @@ public class Sql2oEndangeredAnimalDaoTest {
         assertEquals(0, endangeredAnimalDao.getAll().size());
     }
 
-    @Test
-    public void update() throws Exception {
-        String initialName = "Leopard";
-        String initialAge = "old";
-        String initialHealth = "okay";
-        Endangered_Animal endangered_animal = newEndangeredAnimal();
-        endangeredAnimalDao.add(endangered_animal);
-        endangeredAnimalDao.update(endangered_animal.getId(),"endangered", "Bear", "young", "healthy");
-        Endangered_Animal updatedEndangeredAnimal = endangeredAnimalDao.findById(endangered_animal.getId());
-        assertNotEquals(initialName, updatedEndangeredAnimal.getName());
-        assertNotEquals(initialAge, updatedEndangeredAnimal.getAge());
-        assertNotEquals(initialHealth, updatedEndangeredAnimal.getHealth_status());
-    }
+//    @Test
+//    public void update() throws Exception {
+//        String initialName = "Leopard";
+//        String initialAge = "old";
+//        String initialHealth = "okay";
+//        Endangered_Animal endangered_animal = newEndangeredAnimal();
+//        endangeredAnimalDao.add(endangered_animal);
+//        endangeredAnimalDao.update(endangered_animal.getId(),"endangered", "Bear", "young", "healthy");
+//        Endangered_Animal updatedEndangeredAnimal = endangeredAnimalDao.findById(endangered_animal.getId());
+//        assertNotEquals(initialName, updatedEndangeredAnimal.getName());
+//        assertNotEquals(initialAge, updatedEndangeredAnimal.getAge());
+//        assertNotEquals(initialHealth, updatedEndangeredAnimal.getHealth_status());
+//    }
 
     @Test
     public void deleteByIdDeletesCorrectAnimal() throws Exception {
