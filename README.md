@@ -10,6 +10,14 @@
 
 <p>The records are saved in a database.</p>
 
+## User Stories
+
+1. As a user, i want to see a welcome page that includes where i can go and what i can do.
+2. As  a user i want to be able to navigate through the website with ease.
+3. As a user i want to be able to record a sighting, ranger, location or animal.
+4. As a user i want to be able to modify any details that i may have recorded.
+5. As a user i want to be able to delete any details that i may have recorded.
+6. As a user i want to be able to see all the details of sightings recorded by me and/or other users.
 
 ## Author's Information
 
@@ -49,7 +57,10 @@ To set up the database:
 - Spark.
 - Gradle.
 - Maven.
+- Handlebars.
+- CSS.
 - Bootstrap.
+- Sql2o.
 - JUnit.
 
 
