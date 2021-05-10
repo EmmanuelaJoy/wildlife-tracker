@@ -199,7 +199,7 @@ public class App {
         get("/locations", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             List<Location> locations = locationDao.getAll();
-            model.put("locations", locations);
+            model.put("location", locations);
             return new ModelAndView(model, "locations.hbs");
         }, new HandlebarsTemplateEngine());
 
