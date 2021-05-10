@@ -2,14 +2,17 @@ import static spark.Spark.*;
 
 import dao.Sql2oAnimalDao;
 import dao.Sql2oEndangeredAnimalDao;
+import dao.Sql2oLocationDao;
 import dao.Sql2oRangerDao;
 import models.Common_Animal;
 import models.Endangered_Animal;
+import models.Location;
 import models.Ranger;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,10 +27,24 @@ public class App {
         Sql2oRangerDao rangerDao = new Sql2oRangerDao(sql2o);
         Sql2oAnimalDao animalDao = new Sql2oAnimalDao(sql2o);
         Sql2oEndangeredAnimalDao endangeredAnimalDao = new Sql2oEndangeredAnimalDao(sql2o);
+        Sql2oLocationDao locationDao = new Sql2oLocationDao(sql2o);
 
         get("/", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            locationDao.clearAllLocations();
+            return new ModelAndView(model, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfLocationToDelete = Integer.parseInt(req.params("id"));
+            locationDao.deleteById(idOfLocationToDelete);
+            return new ModelAndView(model, "locations.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/animals/delete", (req, res) -> {
@@ -57,7 +74,6 @@ public class App {
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: delete an individual ranger
         get("/rangers/:id/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfRangerToDelete = Integer.parseInt(req.params("id"));
@@ -93,7 +109,7 @@ public class App {
         get("/rangers/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfRangerToFind = Integer.parseInt(req.params("id"));
-            Ranger foundRanger = rangerDao.findById(idOfRangerToFind); //change
+            Ranger foundRanger = rangerDao.findById(idOfRangerToFind);
             model.put("ranger", foundRanger);
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
@@ -102,13 +118,13 @@ public class App {
         get("/rangers/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfRangerToEdit = Integer.parseInt(req.params("id"));
-            Ranger editRanger = rangerDao.findById(idOfRangerToEdit); //change
+            Ranger editRanger = rangerDao.findById(idOfRangerToEdit);
             model.put("editedRanger", editRanger);
             return new ModelAndView(model, "rangerForm.hbs");
         }, new HandlebarsTemplateEngine());
 
         //task: process a form to update a ranger
-        post("/rangers/:id", (request, response) -> { //URL to update task on POST route
+        post("/rangers/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("rangerName");
             int badgeNumber=Integer.parseInt(request.queryParams("rangerBadgeNumber"));
@@ -164,6 +180,45 @@ public class App {
             Common_Animal common_animal = animalDao.findById(idOfAnimalToEdit);
             model.put("editedAnimal", common_animal);
             return new ModelAndView(model, "animalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/location/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "locationForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/locations", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("location");
+            Location location = new Location(name);
+            locationDao.add(location);
+            model.put("location", location);
+            return new ModelAndView(model, "locationForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            List<Location> locations = locationDao.getAll();
+            model.put("locations", locations);
+            return new ModelAndView(model, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfLocationToEdit = Integer.parseInt(req.params("id"));
+            Location editLocation = locationDao.findById(idOfLocationToEdit);
+            model.put("editedLocation", editLocation);
+            return new ModelAndView(model, "locationForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //task: process a form to update a location
+        post("/locations/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("location");
+            int idOfLocationToEdit = Integer.parseInt(request.params("id"));
+            Location editLocation = locationDao.findById(idOfLocationToEdit);
+            locationDao.update(idOfLocationToEdit, name);
+            return new ModelAndView(model, "locations.hbs");
         }, new HandlebarsTemplateEngine());
 
     }
