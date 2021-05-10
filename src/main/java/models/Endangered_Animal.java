@@ -45,7 +45,7 @@ public class Endangered_Animal {
         return age;
     }
 
-    public String getHealth_status() {
+    public String getHealth() {
         return health;
     }
 

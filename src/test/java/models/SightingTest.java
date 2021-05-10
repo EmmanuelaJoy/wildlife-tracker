@@ -25,22 +25,22 @@ public class SightingTest {
     @Test
     public void sightingRangerIdReturnsCorrectly_int() {
         Sighting sighting = newSighting();
-        assertEquals(1, sighting.getRangerID());
+        assertEquals(1, sighting.getRanger_id());
     }
 
     @Test
     public void sightingAnimalIdReturnsCorrectly_int() {
         Sighting sighting = newSighting();
-        assertEquals(2, sighting.getAnimalID());
+        assertEquals(1, sighting.getAnimal_id());
     }
 
     @Test
     public void sightingLocationIdReturnsCorrectly_int() {
         Sighting sighting = newSighting();
-        assertEquals(3, sighting.getLocationID());
+        assertEquals(1, sighting.getLocation_id());
     }
 
     private Sighting newSighting(){
-        return new Sighting(1,2,3);
+        return new Sighting(1,1,1);
     }
 }

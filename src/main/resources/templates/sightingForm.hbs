@@ -19,17 +19,16 @@
                 <div class="card-body mx-4">
 
                     <div class="text-center">
-                        <h3 class="dark-grey-text mb-5"><strong>To Create A New Sighting Click <a href="/sighting/new">Here</a></strong></h3>
-                        <h2 class="dark-grey-text mb-5"><strong>To Create A Sighting with Existing Details Proceed</strong></h2>
+                        <h2 class="dark-grey-text mb-5"><strong>Create A Sighting</strong></h2>
                     </div>
 
                     <div class="form-group">
                         <label for="rangers">Ranger</label>
                         <select class="custom-select" name="ranger" id="ranger">
                             <option selected>Choose ranger</option>
-                            {{#if ranger}}
-                                {{#each ranger as |r|}}
-                                        <option name="ranger" value={{r.id}}>{{r.name}}</option>
+                            {{#if rangers}}
+                                {{#each rangers}}
+                                        <option name="ranger" value={{id}}>{{name}}</option>
                                 {{/each}}
                             {{/if}}
                         </select>
@@ -38,20 +37,18 @@
 
                     <div class="form-group">
                         <label for="animals">Animal</label>
-                        <select class="custom-select" id="animals" name="animals">
+                        <select class="custom-select" id="animal" name="animal">
                             <option selected>Choose Animal</option>
                                 {{#if commonAnimals}}
-                                    {{#each commonAnimals as |c|}}
-                                        <option name="animal" value={{c.id}}>{{c.name}}</option>
+                                    {{#each commonAnimals}}
+                                        <option name="animal" value={{id}}>{{name}}</option>
                                     {{/each}}
                                 {{/if}}
                                 {{#if endangeredAnimals}}
-                                    {{#each endangeredAnimals as |e|}}
-                                        <option name="animal" value={{e.id}}>{{e.name}}</option>
+                                    {{#each endangeredAnimals}}
+                                        <option name="animal" value={{id}}>{{name}}</option>
                                     {{/each}}
                                 {{/if}}
-                                {{else}}
-                                    <option selected>No Animals available</option>
                         </select>
                     </div>
 
@@ -60,8 +57,8 @@
                         <select class="custom-select" id="location" name="location">
                             <option selected>Choose Location</option>
                             {{#if locations}}
-                                {{#each locations as |l|}}
-                                    <option name="location" value={{l.id}}>{{l.name}}</option>
+                                {{#each locations}}
+                                    <option name="location" value={{id}}>{{name}}</option>
                                 {{/each}}
                             {{/if}}
                         </select>
@@ -69,7 +66,6 @@
 
                     <button type="submit" class="btn btn-light btn-block" id="submitSighting">Create Sighting</button>
                 </div>
-
 
             </div>
         </form>

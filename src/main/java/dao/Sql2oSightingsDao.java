@@ -18,15 +18,15 @@ public class Sql2oSightingsDao implements SightingsDao{
     @Override
     public List<Sighting> getAll() {
         try(Connection connection = sql2o.open()) {
-            return connection.createQuery("SELECT * FROM sightings").executeAndFetch(Sighting.class);
+            return connection.createQuery("SELECT * FROM sightings").throwOnMappingFailure(false).executeAndFetch(Sighting.class);
         }
     }
 
     @Override
     public void add(Sighting sighting) {
-        String sql = "INSERT INTO sightings (rangerID, animalID, locationID, timestamp ) VALUES (:rangerID, :animalID, :locationID, timestamp )";
+        String sql = "INSERT INTO sightings (ranger_id, animal_id, location_id) VALUES (:ranger_id, :animal_id, :location_id)";
         try(Connection connection = sql2o.open()){
-            int id = (int) connection.createQuery(sql,true).bind(sighting).executeUpdate().getKey();
+            int id = (int) connection.createQuery(sql,true).throwOnMappingFailure(false).bind(sighting).executeUpdate().getKey();
             sighting.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
@@ -36,15 +36,15 @@ public class Sql2oSightingsDao implements SightingsDao{
     @Override
     public Sighting findById(int id) {
         try(Connection connection = sql2o.open()) {
-            return connection.createQuery("SELECT * FROM sightings WHERE id = :id").addParameter("id", id).executeAndFetchFirst(Sighting.class);
+            return connection.createQuery("SELECT * FROM sightings WHERE id = :id").throwOnMappingFailure(false).addParameter("id", id).executeAndFetchFirst(Sighting.class);
         }
     }
 
     @Override
     public void update(int id, int newRangerID, int newAnimalID, int newLocationID) {
-        String sql = "UPDATE sightings SET rangerID = :rangerID, animalID = :animalID, locationID = :locationID, timestamp = timestamp WHERE id=:id";
+        String sql = "UPDATE sightings SET ranger_id = :ranger_id, animal_id = :animal_id, location_id = :location_id WHERE id=:id";
         try(Connection connection = sql2o.open()){
-            connection.createQuery(sql).addParameter("rangerID", newRangerID).addParameter("animalID", newAnimalID).addParameter("locationID", newLocationID).addParameter("id", id).executeUpdate();
+            connection.createQuery(sql).throwOnMappingFailure(false).addParameter("ranger_id", newRangerID).addParameter("animal_id", newAnimalID).addParameter("location_id", newLocationID).addParameter("id", id).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
@@ -54,7 +54,7 @@ public class Sql2oSightingsDao implements SightingsDao{
     public void deleteById(int id) {
         String sql = "DELETE from sightings WHERE id=:id";
         try (Connection connection = sql2o.open()) {
-            connection.createQuery(sql).addParameter("id", id).executeUpdate();
+            connection.createQuery(sql).throwOnMappingFailure(false).addParameter("id", id).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
@@ -64,7 +64,7 @@ public class Sql2oSightingsDao implements SightingsDao{
     public void clearAllSightings() {
         String sql = "DELETE from sightings";
         try(Connection connection = sql2o.open()){
-            connection.createQuery(sql).executeUpdate();
+            connection.createQuery(sql).throwOnMappingFailure(false).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }

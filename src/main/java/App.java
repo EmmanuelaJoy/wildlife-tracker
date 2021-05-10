@@ -1,13 +1,7 @@
 import static spark.Spark.*;
 
-import dao.Sql2oAnimalDao;
-import dao.Sql2oEndangeredAnimalDao;
-import dao.Sql2oLocationDao;
-import dao.Sql2oRangerDao;
-import models.Common_Animal;
-import models.Endangered_Animal;
-import models.Location;
-import models.Ranger;
+import dao.*;
+import models.*;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -27,6 +21,7 @@ public class App {
         Sql2oAnimalDao animalDao = new Sql2oAnimalDao(sql2o);
         Sql2oEndangeredAnimalDao endangeredAnimalDao = new Sql2oEndangeredAnimalDao(sql2o);
         Sql2oLocationDao locationDao = new Sql2oLocationDao(sql2o);
+        Sql2oSightingsDao sightingsDao = new Sql2oSightingsDao(sql2o);
 
         get("/", (request,response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -43,6 +38,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfLocationToDelete = Integer.parseInt(req.params("id"));
             locationDao.deleteById(idOfLocationToDelete);
+            model.put("location", locationDao.getAll());
             return new ModelAndView(model, "locations.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -57,6 +53,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfCommonAnimalToDelete = Integer.parseInt(req.params("id"));
             animalDao.deleteById(idOfCommonAnimalToDelete);
+            model.put("commonAnimals", animalDao.getAll());
+            model.put("endangeredAnimals", endangeredAnimalDao.getAll());
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -64,6 +62,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfEndangeredAnimalToDelete = Integer.parseInt(req.params("id"));
             endangeredAnimalDao.deleteById(idOfEndangeredAnimalToDelete);
+            model.put("commonAnimals", animalDao.getAll());
+            model.put("endangeredAnimals", endangeredAnimalDao.getAll());
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -77,6 +77,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfRangerToDelete = Integer.parseInt(req.params("id"));
             rangerDao.deleteById(idOfRangerToDelete);
+            model.put("ranger", rangerDao.getAll());
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -117,8 +118,8 @@ public class App {
         get("/rangers/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfRangerToEdit = Integer.parseInt(req.params("id"));
-            Ranger editRanger = rangerDao.findById(idOfRangerToEdit);
-            model.put("editedRanger", editRanger);
+            Ranger rangerToEdit = rangerDao.findById(idOfRangerToEdit);
+            model.put("rangerToEdit", rangerToEdit);
             return new ModelAndView(model, "rangerForm.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -145,15 +146,18 @@ public class App {
             String type = request.queryParams("type");
             String commonAnimalName = request.queryParams("commonAnimalName");
             String commonAnimalAge = request.queryParams("commonAnimalAge");
-            Common_Animal common_animal = new Common_Animal(type, commonAnimalName, commonAnimalAge);
-            animalDao.add(common_animal);
-            model.put("commonAnimal", common_animal);
             String endangeredAnimalName = request.queryParams("endangeredAnimalName");
             String endangeredAnimalAge = request.queryParams("endangeredAnimalAge");
             String health = request.queryParams("endangeredAnimalHealth");
-            Endangered_Animal endangered_animal = new Endangered_Animal(type, endangeredAnimalName, endangeredAnimalAge, health);
-            endangeredAnimalDao.add(endangered_animal);
-            model.put("endangeredAnimal", endangered_animal);
+            if(type.equals("common")) {
+                Common_Animal common_animal = new Common_Animal(type, commonAnimalName, commonAnimalAge);
+                animalDao.add(common_animal);
+                model.put("commonAnimal", common_animal);
+            } else{
+                Endangered_Animal endangered_animal = new Endangered_Animal(type, endangeredAnimalName, endangeredAnimalAge, health);
+                endangeredAnimalDao.add(endangered_animal);
+                model.put("endangeredAnimal", endangered_animal);
+            }
             return new ModelAndView(model, "animalForm.hbs");
         },new HandlebarsTemplateEngine());
 
@@ -218,6 +222,33 @@ public class App {
             Location editLocation = locationDao.findById(idOfLocationToEdit);
             locationDao.update(idOfLocationToEdit, name);
             return new ModelAndView(model, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/sighting/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("rangers", rangerDao.getAll());
+            model.put("commonAnimals", animalDao.getAll());
+            model.put("endangeredAnimals", endangeredAnimalDao.getAll());
+            model.put("locations", locationDao.getAll());
+            return new ModelAndView(model, "sightingForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightings", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int rangerId = Integer.parseInt(request.queryParams("ranger"));
+            int animalId = Integer.parseInt(request.queryParams("animal"));
+            int locationId = Integer.parseInt(request.queryParams("location"));
+            Sighting sighting = new Sighting(rangerId, animalId, locationId);
+            sightingsDao.add(sighting);
+            model.put("sightings", sighting);
+            return new ModelAndView(model, "sightingForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/sightings", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            List<Sighting> sightings = sightingsDao.getAll();
+            model.put("sightings", sightings);
+            return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
     }

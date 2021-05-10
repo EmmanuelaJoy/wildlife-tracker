@@ -4,15 +4,15 @@ body {
     color:#fff;
 }
 
-.row{
-    display: table-cell;
-}
-
 h2{
     text-align: center;
     font-family: 'Playfair Display SC', serif;
     font-weight: 600;
     margin: 2em;
+}
+
+.row{
+    justify-content: center;
 }
 
 .ranger{
@@ -42,15 +42,13 @@ h2{
     z-index:2;
 }
 
-.ranger #rangerList:nth-child(even) a{
-    position:relative;
-    top:5px;
-    background:#cfc;
-}
-.ranger #rangerList:nth-child(3n) a{
-    position:relative;
-    top:-5px;
-    background:#ccf;
+#rangerButtons{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 15px;
+    font-size: 18px;
 }
 
 #noRanger{
@@ -60,9 +58,21 @@ h2{
     left: 40%;
 }
 
+#noRanger h2{
+    margin: 0;
+}
+
 #noRanger #rangerList #rangerListLink{
     text-align: center;
     height:20em;
     width:20em;
     padding:6em;
 }
+
+/*#delete{*/
+/*    text-align: center;*/
+/*}*/
+
+/*.btn-danger{*/
+/*    padding: 1em;*/
+/*}*/

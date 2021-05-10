@@ -1,12 +1,9 @@
 package dao;
 
-import models.Ranger;
 import models.Sighting;
 import org.sql2o.*;
 import org.junit.*;
 import org.sql2o.Sql2o;
-
-import javax.sql.DataSource;
 
 import static org.junit.Assert.*;
 

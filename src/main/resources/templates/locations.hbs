@@ -9,28 +9,25 @@
     {{#if location}}
 
         <h2>LIST OF LOCATIONS</h2>
-
-        {{#each location}}
+        <div class="container-fluid">
             <div class="row">
-                <div class="column">
-                    <ul class="location">
-                        <li id="locationList">
-                            <a href="#" id="locationListLink">
-                                <div class="card" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <p class="card-text">{{name}}</p>
-                                        <a href="/locations/{{id}}/update" class="card-link">Edit Location</a>
-                                        <a href="/locations/{{id}}/delete" class="card-link">Delete Location</a>
+                {{#each location}}
+                        <div class="column" id="items">
+                            <ul class="location">
+                                <li id="locationList">
+                                    <div class="card" style="width: 18rem;" id="locationListLink">
+                                        <div class="card-body">
+                                            <p class="card-text">{{name}}</p>
+                                            <a href="/locations/{{id}}/update" class="card-link">Edit Location</a>
+                                            <a href="/locations/{{id}}/delete" class="card-link">Delete Location</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                                </li>
+                            </ul>
+                        </div>
+                {{/each}}
             </div>
-
-        {{/each}}
-
+        </div>
 
     {{else}}
         <ul class="location" id="noLocation">
@@ -43,9 +40,9 @@
         </ul>
     {{/if}}
 
-    {{#if location}}
-        <a href="/locations/delete"><button class="btn-info">Delete All Locations</button></a>
-    {{/if}}
+<!--    {{#if location}}-->
+<!--        <a href="/locations/delete"><button class="btn-info">Delete All Locations</button></a>-->
+<!--    {{/if}}-->
 
 {{/partial}}
 

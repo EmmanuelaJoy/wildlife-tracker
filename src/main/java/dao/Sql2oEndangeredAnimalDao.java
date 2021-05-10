@@ -17,7 +17,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     @Override
     public List<Endangered_Animal> getAll() {
         try(Connection connection = sql2o.open()) {
-            return connection.createQuery("SELECT * FROM endangered_animals").executeAndFetch(Endangered_Animal.class);
+            return connection.createQuery("SELECT * FROM endangered_animals").throwOnMappingFailure(false).executeAndFetch(Endangered_Animal.class);
         }
     }
 
@@ -25,7 +25,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     public void add(Endangered_Animal endangered_animal) {
         String sql = "INSERT INTO endangered_animals (type , name , age, health) VALUES (:type , :name , :age, :health)";
         try(Connection connection = sql2o.open()){
-            int id = (int) connection.createQuery(sql,true).bind(endangered_animal).executeUpdate().getKey();
+            int id = (int) connection.createQuery(sql,true).throwOnMappingFailure(false).bind(endangered_animal).executeUpdate().getKey();
             endangered_animal.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
@@ -35,7 +35,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     @Override
     public Endangered_Animal findById(int id) {
         try(Connection connection = sql2o.open()) {
-            return connection.createQuery("SELECT * FROM endangered_animals WHERE id = :id").addParameter("id", id).executeAndFetchFirst(Endangered_Animal.class);
+            return connection.createQuery("SELECT * FROM endangered_animals WHERE id = :id").throwOnMappingFailure(false).addParameter("id", id).executeAndFetchFirst(Endangered_Animal.class);
         }
     }
 
@@ -43,8 +43,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     public void update(int id, String newType, String newName, String newAge, String newHealth) {
         String sql = "UPDATE endangered_animals SET type= :type, name = :name, age = :age, health = :health WHERE id=:id";
         try(Connection connection = sql2o.open()){
-            connection.createQuery(sql).addParameter("id", id).addParameter("type", newType).addParameter("name", newName).addParameter("age", newAge).addParameter("health", newHealth).executeUpdate();
-
+            connection.createQuery(sql).throwOnMappingFailure(false).addParameter("id", id).addParameter("type", newType).addParameter("name", newName).addParameter("age", newAge).addParameter("health", newHealth).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
@@ -55,7 +54,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     public void deleteById(int id) {
         String sql = "DELETE from endangered_animals WHERE id=:id";
         try (Connection connection = sql2o.open()) {
-            connection.createQuery(sql).addParameter("id", id).executeUpdate();
+            connection.createQuery(sql).throwOnMappingFailure(false).addParameter("id", id).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
@@ -65,7 +64,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
     public void clearAllEndangeredAnimals() {
         String sql = "DELETE from endangered_animals";
         try(Connection connection = sql2o.open()){
-            connection.createQuery(sql).executeUpdate();
+            connection.createQuery(sql).throwOnMappingFailure(false).executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
         }

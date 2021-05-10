@@ -44,7 +44,7 @@ public class Endangered_AnimalTest {
     @Test
     public void endangeredAnimalHealthStatusReturnsCorrectly_int() {
         Endangered_Animal endangered_animal = newEndangeredAnimal();
-        assertEquals("okay", endangered_animal.getHealth_status());
+        assertEquals("okay", endangered_animal.getHealth());
     }
 
     private Endangered_Animal newEndangeredAnimal(){
