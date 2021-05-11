@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="dao.Sql2oRangerDaoTest" time="0.176" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="dao.Sql2oRangerDaoTest" time="46.064" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.10+9"/>
@@ -61,10 +61,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="rangerIdIsSetCorrectly" classname="dao.Sql2oRangerDaoTest" time="0.019"/>
-  <testcase name="clearAllClearsAll" classname="dao.Sql2oRangerDaoTest" time="0.042"/>
-  <testcase name="deleteByIdDeletesCorrectRanger" classname="dao.Sql2oRangerDaoTest" time="0.026"/>
-  <testcase name="updateRanger" classname="dao.Sql2oRangerDaoTest" time="0.034"/>
-  <testcase name="noTasksReturnsEmptyList" classname="dao.Sql2oRangerDaoTest" time="0.008"/>
-  <testcase name="getsAllRangers" classname="dao.Sql2oRangerDaoTest" time="0.042"/>
+  <testcase name="rangerIdIsSetCorrectly" classname="dao.Sql2oRangerDaoTest" time="3.912"/>
+  <testcase name="clearAllClearsAll" classname="dao.Sql2oRangerDaoTest" time="11.532"/>
+  <testcase name="deleteByIdDeletesCorrectRanger" classname="dao.Sql2oRangerDaoTest" time="7.775"/>
+  <testcase name="updateRanger" classname="dao.Sql2oRangerDaoTest" time="7.827"/>
+  <testcase name="noTasksReturnsEmptyList" classname="dao.Sql2oRangerDaoTest" time="3.804"/>
+  <testcase name="getsAllRangers" classname="dao.Sql2oRangerDaoTest" time="9.529"/>
 </testsuite>

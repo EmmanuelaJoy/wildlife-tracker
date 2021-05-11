@@ -14,10 +14,10 @@ public class Sql2oRangerDaoTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-//        String connectionString = "jdbc:postgresql://ec2-54-163-254-204.compute-1.amazonaws.com:5432/de2jr153rr5f6k";
-//        Sql2o sql2o = new Sql2o(connectionString, "swgavudvlixczf", "2948abef64b5819012a8e053e492dede708185e8e553b16645179cb21356ed72");
-        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-        Sql2o sql2o = new Sql2o(connectionString, "emmanuela", "adminPass");
+        String connectionString = "jdbc:postgresql://ec2-54-163-254-204.compute-1.amazonaws.com:5432/de2jr153rr5f6k?sslmode=require";
+        Sql2o sql2o = new Sql2o(connectionString, "swgavudvlixczf", "2948abef64b5819012a8e053e492dede708185e8e553b16645179cb21356ed72");
+//        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+//        Sql2o sql2o = new Sql2o(connectionString, "emmanuela", "adminPass");
         rangerDao = new Sql2oRangerDao(sql2o);
         connection = sql2o.open();
     }

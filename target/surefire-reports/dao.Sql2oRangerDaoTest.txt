@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dao.Sql2oRangerDaoTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 sec - in dao.Sql2oRangerDaoTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.064 sec - in dao.Sql2oRangerDaoTest

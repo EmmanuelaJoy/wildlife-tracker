@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="dao.Sql2oLocationDaoTest" time="0.24" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="dao.Sql2oLocationDaoTest" time="47.016" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.10+9"/>
@@ -61,10 +61,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="locationIdIsSetCorrectly" classname="dao.Sql2oLocationDaoTest" time="0.019"/>
-  <testcase name="clearAllClearsAll" classname="dao.Sql2oLocationDaoTest" time="0.057"/>
-  <testcase name="updateLocation" classname="dao.Sql2oLocationDaoTest" time="0.062"/>
-  <testcase name="getsAllLocations" classname="dao.Sql2oLocationDaoTest" time="0.052"/>
-  <testcase name="noTasksReturnsEmptyList" classname="dao.Sql2oLocationDaoTest" time="0.012"/>
-  <testcase name="deleteByIdDeletesCorrectLocation" classname="dao.Sql2oLocationDaoTest" time="0.033"/>
+  <testcase name="locationIdIsSetCorrectly" classname="dao.Sql2oLocationDaoTest" time="3.872"/>
+  <testcase name="clearAllClearsAll" classname="dao.Sql2oLocationDaoTest" time="11.491"/>
+  <testcase name="updateLocation" classname="dao.Sql2oLocationDaoTest" time="7.653"/>
+  <testcase name="getsAllLocations" classname="dao.Sql2oLocationDaoTest" time="8.826"/>
+  <testcase name="noTasksReturnsEmptyList" classname="dao.Sql2oLocationDaoTest" time="5.023"/>
+  <testcase name="deleteByIdDeletesCorrectLocation" classname="dao.Sql2oLocationDaoTest" time="8.372"/>
 </testsuite>

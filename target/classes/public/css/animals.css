@@ -66,6 +66,7 @@ h2{
 }
 
 #noAnimal #animalList #animalListLink{
+    background-color: burlywood;
     text-align: center;
     height:20em;
     width:20em;

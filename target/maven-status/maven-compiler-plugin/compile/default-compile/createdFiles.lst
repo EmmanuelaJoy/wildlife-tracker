@@ -13,6 +13,6 @@ dao/Sql2oAnimalDao.class
 DatabaseProps.class
 dao/SightingsDao.class
 models/Common_Animal.class
-dao/Sql2oLocationDao.class
 dao/LocationDao.class
+dao/Sql2oLocationDao.class
 models/Endangered_Animal.class
